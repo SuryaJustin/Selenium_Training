@@ -16,9 +16,9 @@ public class DownloadUsingFirefox {
         options.addPreference("browser.download.dir", "C:\\USB\\Selenium_Training\\Downloads");
         WebDriver driver = new FirefoxDriver(options);
 
-        driver.get("https://www.wisdomaxis.com/technology/software/data/for-reports/");
+        driver.get("https://www.selenium.dev/downloads/");
 
-        WebElement download = driver.findElement(By.xpath("//a[text()=' Orders-With Nulls.xlsx ']"));
+        WebElement download = driver.findElement(By.xpath("//a[text()='4.5.0']"));
         download.click();
     }
 
