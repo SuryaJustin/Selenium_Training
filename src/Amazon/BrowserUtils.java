@@ -5,30 +5,39 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
-public class BrowserUtils {
+public  class  BrowserUtils {
 
-    //    String browserName = "FIREFOX";
+    public static WebDriver driver;
+
+//
+//    static String browserName = "FIREFOX";
 //
 //    BrowserUtils() {
 //        if (browserName.equalsIgnoreCase("chrome")) {
 //            System.setProperty("webdriver.chrome.driver", "C:\\USB\\Driver\\chromedriver.exe");
 //            WebDriver chromeDriver = new ChromeDriver();
+//    driver.get("https://www.tnpsc.gov.in/home.aspx");
+//      driver.manage().window().maximize();
 //
 //        } else if (browserName.equalsIgnoreCase("firefox")) {
 //            System.setProperty("webdriver.gecko.driver", "C:\\USB\\Driver\\geckodriver.exe");
 //            WebDriver firefoxDriver = new FirefoxDriver();
+//          driver.manage().window().maximize();
 //        }
 //    }
-    public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\USB\\Driver\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+
+    public void browser(String browserName) {
+        if (browserName.equalsIgnoreCase("chrome")) {
+            System.setProperty("webdriver.chrome.driver", "C:\\USB\\Driver\\chromedriver.exe");
+            driver = new ChromeDriver();
+        } else if (browserName.equalsIgnoreCase("firefox")) {
+            System.setProperty("webdriver.gecko.driver", "C:\\USB\\Driver\\geckodriver.exe");
+            driver = new FirefoxDriver();
+        }
         driver.get("https://www.tnpsc.gov.in/home.aspx");
         driver.manage().window().maximize();
 
-        AmazonPage amazonPage = new AmazonPage(driver);
-        amazonPage.clickHome();
-        amazonPage.verifyApplyOnline();
-
     }
+
 }
 
